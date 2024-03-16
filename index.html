@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades - Victor Junqueira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <select id="theme-selector">
+            <option value="temperature">Temperatura</option>
+            <option value="distance">Distância</option>
+            <option value="currency">Moeda</option>
+        </select>
+
+        <input type="number" id="input-value" placeholder="Valor a converter">
+
+        <select id="unit-from"></select>
+
+        <select id="unit-to"></select>
+
+        <button onclick="convert()">Converter</button>
+
+        <div id="result">Resultado: <span id="converted-value">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
