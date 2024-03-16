@@ -89,7 +89,7 @@ function convert() {
             break;
     }
 
-    document.getElementById("converted-value").innerHTML = result.toFixed(2)
+    document.getElementById("converted-value").innerHTML = result.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 document.getElementById("theme-selector").addEventListener("change", updateUnitsByTheme);
