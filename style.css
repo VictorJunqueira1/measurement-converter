@@ -10,7 +10,7 @@ body {
 
 #app {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
@@ -29,6 +29,10 @@ button {
     border-radius: 5px;
 }
 
+#result{
+    text-align: center;
+}
+
 button {
     background-color: #007bff;
     color: white;
@@ -37,4 +41,5 @@ button {
 
 button:hover {
     background-color: #0056b3;
+    transition-duration: 300ms;
 }

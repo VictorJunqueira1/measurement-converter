@@ -5,7 +5,6 @@ const unitsByTheme = {
     currency: ["USD", "EUR", "BRL"],
 }
 
-// Função para atualizar as opções de unidade com base no tema selecionado
 function updateUnitsByTheme() {
     const theme = document.getElementById("theme-selector").value;
     const units = unitsByTheme[theme];
@@ -21,14 +20,14 @@ function updateUnitsByTheme() {
         optionFrom.value = unit;
         optionTo.value = unit;
         optionFrom.innerHTML = unit;
-        optionFrom.innerHTML = unit;
-        unitFromSelector.appendChild(optionFrom)
-        unitToSelector.appendChild(optionTo)
+        optionTo.innerHTML = unit;
+        unitFromSelector.appendChild(optionFrom);
+        unitToSelector.appendChild(optionTo);
     });
 }
 
 // Temperatura
-function convertTemperature() {
+function convertTemperature(value, from, to) {
     if (from === to) return value;
     if (from === "Celsius") {
         return to === "Fahrenheit" ? (value * 9 / 5) + 32 : value + 273.15
@@ -70,8 +69,29 @@ function convertCurrency(value, from, to) {
     return convertedValue;
 }
 
-// Função para conversão
+function convert() {
+    const theme = document.getElementById("theme-selector").value;
+    const value = parseFloat(document.getElementById("input-value").value);
+    const fromUnit = document.getElementById("unit-from").value;
+    const toUnit = document.getElementById("unit-to").value;
 
-// Evento para atualizar as opções ao mudar o tema
+    let result = 0;
 
-// Chamada inicial para configurar as opções
+    switch (theme) {
+        case 'temperature':
+            result = convertTemperature(value, fromUnit, toUnit);
+            break;
+        case 'distance':
+            result = convertDistance(value, fromUnit, toUnit);
+            break;
+        case 'currency':
+            result = convertCurrency(value, fromUnit, toUnit);
+            break;
+    }
+
+    document.getElementById("converted-value").innerHTML = result.toFixed(2)
+}
+
+document.getElementById("theme-selector").addEventListener("change", updateUnitsByTheme);
+
+updateUnitsByTheme();
